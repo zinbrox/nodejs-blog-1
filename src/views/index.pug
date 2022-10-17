@@ -1,0 +1,65 @@
+//- doctype html 
+
+//- h1 Hello World
+//- H1 Blog Post
+//- form(action= "/postBlog", method= "post", class= "myForm")
+//- | Title:
+//- br
+//- <input type="text"class= "name" name="title" placeholder="Enter your Blog Title">
+//- br
+//- | Blog:
+//- br
+//- <input type="text" class= “myInput” name="blog" placeholder="Enter your Blog">
+//- br
+//- | Name: 
+//- br
+//- <input type="text" class= “myInput” name="name" placeholder="Enter your Name">
+//- br
+//- br
+//- <button type='submit', value='Submit'>
+
+
+//- block content
+//-     p The best movie is #{ blogs }
+//-     p= blogs
+//- block more_content
+//-     p More content from index.pug!!
+
+<!DOCTYPE html>
+html(lang="en")
+    head
+        title Home Page
+    
+    style.
+        .button {
+        background-color: #f4511e;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        opacity: 0.6;
+        transition: 0.3s;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        }
+        .button:hover {opacity: 1}
+
+    body
+        header
+            nav
+                ul(style='list-style-type:none')
+                    li
+                        a(href="/viewBlog") View Blogs
+                    li 
+                        a(href='/createBlog') Create Blog
+                    li
+                        a(href="/loginUser") Login 
+                    li
+                        a(href="/registerUser") Register 
+                    
+        hr
+        block content
+        block more_content

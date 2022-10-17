@@ -1,0 +1,34 @@
+ul(style='list-style-type:none')
+    li <strong> Blog ID: </strong>  #{blog._id}
+    li  <strong> Author: </strong> #{blog.userName}
+    li  <strong> Title: </strong>  #{blog.title}
+    li  <strong> Blog: </strong>  #{blog.body}
+    li <strong> Timestamp: </strong>  #{blog.createdAt}
+    br
+    br
+    li <strong> Comments: </strong>
+    br
+    for comment in blog.comments
+        form(action='!!!' method='post')
+            li <strong> Comment ID: </strong> #{comment._id}
+            li  <strong> Comment: </strong> #{comment.comment}
+            li  <strong> User: </strong> #{comment.userId}
+            li <strong> Timestamp: </strong> #{comment.createdAt}
+            input(type='hidden' value=comment._id name='commentId')
+            input(type='hidden' value=comment.userId name='commentEmail')
+            //- input(type='hidden' value=comement.comment name='commentBody')
+            input(type='hidden' value=blog._id name='blogId') 
+            input(type='submit' value='Edit', style='button' formaction='/updateComment')
+            =" "
+            input(type='submit' value='Delete', style='button' formaction='/blog/deleteComment')
+            =" "
+            br
+            br
+    form(action='blog/addComment' method='post')
+        input(type='hidden' value=blog._id name="blogId")
+        input(type='hidden' value= req.session.name name="userName")
+        input(type='hidden' value= req.session.email name="email")
+        textarea(rows=4, cols=50 type='text' name='commentBody')
+        =" "
+        input(type='submit' style="button" value='Comment')
+

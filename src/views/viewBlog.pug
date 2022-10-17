@@ -1,0 +1,18 @@
+extends index.pug
+block more_content
+    for blog in blogs
+        form(action='/add' method='post')
+            li <strong> Blog ID: </strong> #{blog._id}
+            li  <strong> Author: </strong> #{blog.userName}
+            li  <strong> Title: </strong> #{blog.title}
+            li  <strong> Blog: </strong> #{blog.body}
+            li <strong> Timestamp: </strong> #{blog.createdAt}
+            input(type='hidden' value=blog.email name='email')
+            input( type='hidden' value=blog._id name="blogId")
+            input(type='submit' value='Edit' class='button' formaction='/updatePost')
+            |  
+            input(type='submit' value='View' class='button' formaction='/viewComment')
+            ="  "
+            input(type='submit' value='Delete' class='button' formaction='/blog/deleteBlog')
+            br
+            br
